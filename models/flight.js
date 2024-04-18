@@ -26,7 +26,9 @@ const destinationSchema = new Schema({
   arrival: {
     type: Date,
     default: function () {
-      return new Date().getFullYear();
+      const today = new Date();
+      const year = today.getFullYear();
+      return today.setFullYear(year + 1);
     }
   }
 }, {
