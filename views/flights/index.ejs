@@ -12,12 +12,13 @@
   </thead>
   <tbody>
     <!-- Write the line of EJS to iterate over movies using forEach -->
-    <% flights.forEach(function(m) { %>
+    <% flights.forEach(function(d) { %>
       <tr>
-        <td><%= m.airline %></td>
-        <td><%= m.airport %></td>
-        <td><%= m.flightNo %></td>
-        <td><%= m.departs %></td>
+        <td><%= d.airline %></td>
+        <td><%= d.airport %></td>
+        <td><%= d.flightNo %></td>
+        <td><%= d.departs %></td>
+        <td><a href="/flights/<%= d._id %>">DETAILS</a></td>
         <!-- finish the ternary expression to display 'Yes' or 'Nope' -->
       </tr>
     <!-- Close the forEach using EJS here -->

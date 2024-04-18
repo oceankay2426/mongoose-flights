@@ -6,7 +6,7 @@ var logger = require('morgan');
 
 require('dotenv').config();
 require('./config/database');
-
+debugger;
 var indexRouter = require('./routes/index');
 var flightsRouter = require('./routes/flights');
 var destinationsRouter = require('./routes/destinations');

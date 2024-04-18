@@ -1,21 +1,11 @@
 const Flight = require('../models/flight');
 
 module.exports = {
+  show,
   index,
   new: newflight,
   create
 };
-
-async function index(req, res) {
-  const flights = await Flight.find({});
-  res.render('flights/index', { flights });
-}
-
-function newflight(req, res) {
-  // We'll want to be able to render an  
-  // errorMsg if the create action fails
-  res.render('flights/new', { errorMsg: '' });
-}
 
 async function create(req, res) {
   
@@ -35,3 +25,23 @@ async function create(req, res) {
     res.render('flights/new', { errorMsg: err.message });
   }
 }
+
+function newflight(req, res) {
+  // We'll want to be able to render an  
+  // errorMsg if the create action fails
+  res.render('flights/new', { errorMsg: '' });
+}
+
+async function index(req, res) {
+  const flights = await Flight.find({});
+  res.render('flights/index', { flights });
+}
+
+async function show(req, res) {
+
+  const flight = await Flight.findById(req.params.id);
+  
+  res.render('flights/show', { title: 'Flight Detail', flight });
+};
+
+
